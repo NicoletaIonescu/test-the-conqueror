@@ -1,0 +1,38 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('logout', 'Auth\LoginController@logout');
+
+    // User module
+    Route::get('user', 'Auth\UserController@current');
+    Route::get('users', 'Auth\UserController@index');
+    Route::get('users/{user}', 'Auth\UserController@show');
+    Route::post('users', 'Auth\UserController@store');
+    Route::post('users/{user}', 'Auth\UserController@update');
+    Route::delete('users/{user}', 'Auth\UserController@destory');
+    Route::get('countries', 'Auth\UserController@getCountries');
+
+    //Challenges module
+    Route::get('challanges', 'ChallangesController@index');
+
+    //Bundles module
+    Route::post('boundle', 'BundelsController@store');
+
+});
+
+Route::group(['middleware' => 'guest:api'], function () {
+    Route::post('login', 'Auth\LoginController@login');
+
+
+});
