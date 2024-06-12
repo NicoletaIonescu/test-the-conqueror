@@ -16,7 +16,7 @@ class CreateChallangesTable extends Migration
         Schema::create('challanges', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->integer('distance_km');
             $table->integer('distance_ml');
             $table->integer('virtual_postcards');
