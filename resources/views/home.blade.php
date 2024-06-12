@@ -1,6 +1,6 @@
 @php
     $config = [
-        'appName' => "Bundles Test Assigment",
+        'appName' => "The Conqueror - Test Assigment",
         'locale' => "en",
         'locales' => ['en' => 'EN']
     ];
