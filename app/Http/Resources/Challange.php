@@ -18,8 +18,8 @@ class Challange extends JsonResource
             "has_street_view"=> $this->has_street_view,
             "wallpaper" => $this->wallpaper,
             "image"=> $this->image,
-            "status"=>$this->status,
-
+            "added"=>$this->added,
+            "completed"=>$this->completed,
         ];
     }
 }

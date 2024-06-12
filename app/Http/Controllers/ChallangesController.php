@@ -15,7 +15,7 @@ class ChallangesController extends Controller
     public function index(Request $request)
     {
         $user_id = $request->user_id;
-        $challenges = Challange::select('challanges.*', 'bundels.status')
+        $challenges = Challange::select('challanges.*', 'bundels.added', 'bundels.completed')
             ->leftJoin('bundels', function ($join) use ($user_id) {
                 $join->on('challanges.id', '=', 'bundels.challenge_id');
                 $join->on('bundels.user_id', '=', \DB::raw("'".$user_id."'"));

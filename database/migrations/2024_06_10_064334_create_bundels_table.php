@@ -21,7 +21,8 @@ class CreateBundelsTable extends Migration
             $table->foreignId('challenge_id')
                 ->constrained('challanges')
                 ->onDelete('cascade');
-            $table->boolean('status')->default(0);
+            $table->boolean('added')->default(1);
+            $table->boolean('completed')->default(0);
             $table->timestamps();
         });
     }

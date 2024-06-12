@@ -1,6 +1,6 @@
 <template>
-    <div class="mt-5">
-        <b-card no-body class="challange_container rounded ">
+    <div v-if="challenge.added != 1" class="mt-5">
+        <b-card no-body class="challange_container rounded">
             <img class="challange_wallpaper_image" :src="challenge.wallpaper">
             <div class="challange_fade"></div>
             <b-card-title class="challange_title text-center pt-5">{{ challenge.name }}</b-card-title>
@@ -13,9 +13,7 @@
                 <p v-else class="challange_street_view text-center">No Street View</p>
 
                 <div class="text-center">
-                    <span v-if="challenge.status === null">
-                        <b-button @click.prevent="addChallange(challenge.id, user_id)" class="challange_add_button" >Add challenge</b-button>
-                    </span>
+                    <b-button @click.prevent="addChallange(challenge.id, user_id)" class="challange_add_button" >Add challenge</b-button>
                 </div>
             </b-card-text>
         </b-card>
