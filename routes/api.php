@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('challanges', 'ChallangesController@index');
 
     //Bundles module
+    Route::get('boundle', 'BundelsController@index');
     Route::post('boundle', 'BundelsController@store');
 
 });

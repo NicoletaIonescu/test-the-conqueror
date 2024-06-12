@@ -1,5 +1,5 @@
 <template>
-    <div v-if="challenge.added != 1" class="mt-5">
+    <div  class="mt-5">
         <b-card no-body class="challange_container rounded">
             <img class="challange_wallpaper_image" :src="challenge.wallpaper">
             <div class="challange_fade"></div>
@@ -12,7 +12,7 @@
                 <p v-if="challenge.has_street_view" class="challange_street_view text-center"> Has Street View</p>
                 <p v-else class="challange_street_view text-center">No Street View</p>
 
-                <div class="text-center">
+                <div class="text-center" v-if="challenge.added != 1">
                     <b-button @click.prevent="addChallange(challenge.id, user_id)" class="challange_add_button" >Add challenge</b-button>
                 </div>
             </b-card-text>

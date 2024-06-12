@@ -12,7 +12,13 @@
                 <b-navbar-nav v-if="user">
                     <b-nav-item right>
                         <b-link :to="{name: 'challenges'}" class="meniu_link">
-                            Challanges
+                            All Challenges
+                        </b-link>
+                    </b-nav-item>
+
+                    <b-nav-item right>
+                        <b-link :to="{name: 'my-challenges'}" class="meniu_link">
+                            My Challenges
                         </b-link>
                     </b-nav-item>
 

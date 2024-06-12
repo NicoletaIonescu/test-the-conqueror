@@ -4,16 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Bundel;
 use Illuminate\Http\Request;
+use App\Http\Resources\Challange as ChallangesResource;
 
 class BundelsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function index(Request $request)
     {
+        $user_id = $request->user_id;
+
+        $challenges = Bundel::select(['challanges.*', 'bundels.added', 'bundels.completed'])
+            ->leftJoin('challanges',function($join) {
+            $join->on('challanges.id', '=', 'bundels.challenge_id');
+            })
+            ->where('user_id', $user_id)
+            ->get();
+
+        return ChallangesResource::collection($challenges);
 
     }
 

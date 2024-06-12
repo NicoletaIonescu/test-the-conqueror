@@ -162,7 +162,7 @@ export default {
 }
 
 .logo_black {
-    height: 9.2rem;
+    height: 25.2rem;
 }
 
 .footer_title_link {

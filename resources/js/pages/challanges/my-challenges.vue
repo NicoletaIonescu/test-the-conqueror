@@ -1,32 +1,30 @@
 <template>
     <div>
-        <h1 class="text-center m-auto all_challenges_title"> All Challenges </h1>
+        <h1 class="text-center m-auto all_challenges_title"> My Challenges </h1>
 
         <div class="container-fluid mb-3">
-            <div class="row row-col-5 justify-content-center">
                 <div v-for="item in this.challanges">
-                    <div class="cols-xs-5 mx-2">
-                       <card-challange-component :challenge="item" :user_id="user.id" ></card-challange-component>
+                    <div class="mx-2">
+                        <card-detail-challenge-component  :challenge="item" :user_id="user.id" ></card-detail-challenge-component>
                     </div>
                 </div>
-            </div>
         </div>
 
     </div>
 </template>
 
 <script>
-import CardChallangeComponent from "../../components/CardChallangeComponent.vue";
 import axios from 'axios'
 import toast from '../../mixins/message.vue'
 import { mapGetters } from 'vuex'
+import CardDetailChallengeComponent from "../../components/CardDetailChallangeComponent.vue";
 export default {
-    components: {CardChallangeComponent},
+    components: {CardDetailChallengeComponent},
     mixins: [toast],
     middleware: 'auth',
     data() {
         return {
-            challanges:[]
+            challanges:[],
         }
     },
 
@@ -35,14 +33,14 @@ export default {
     }),
 
     methods: {
-        async loadChallanges () {
-            const { data } = await axios.get('/api/challanges?user_id='+this.user.id);
+        async loadBundelsChallanges () {
+            const { data } = await axios.get('/api/boundle?user_id='+this.user.id);
             this.challanges = data.data;
-            console.log(this.challanges);
+            console.log(this.bundels_challanges);
         },
     },
     mounted() {
-        this.loadChallanges();
+        this.loadBundelsChallanges();
     }
 }
 </script>
